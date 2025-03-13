@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Hero Start -->
+<div class="container-fluid py-6 mb-5 hero-header">
+    <div class="container">
+        <h2>ĐĂNG NHẬP TÀI KHOẢN</h2>
+        <div class="login-container">
+            <!-- Form đăng nhập -->
+            <div class="login-box">
+                <p>Nếu bạn đã có tài khoản, đăng nhập tại đây.</p>
+                <form>
+                    <label>Email *</label>
+                    <input type="email" placeholder="Email" required>
+                    <label>Mật khẩu *</label>
+                    <input type="password" placeholder="Mật khẩu" required>
+                    <button class="btn">Đăng nhập</button>
+                    <a href="#">Đăng ký</a>
+                </form>
+            </div>
+
+            <!-- Form quên mật khẩu -->
+            <div class="forgot-password-box">
+                <p>Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu.</p>
+                <form>
+                    <label>Email *</label>
+                    <input type="email" placeholder="Email" required>
+                    <button class="btn">Lấy lại mật khẩu</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Đăng nhập bằng mạng xã hội -->
+        <div class="social-login">
+            <p>Hoặc đăng nhập bằng</p>
+            <a href="@Url.Action("ExternalLogin", "Login", new { provider = "Facebook", returnUrl = "/" })")" class="btn fb">Đăng nhập với Facebook</a>
+            <a href="@Url.Action("ExternalLogin", "Login",new { provider = "Google", returnUrl = "/" })" class="btn google">Đăng nhập với Google</a>
+        </div>
+
+    </div>
+    <!-- Hero End -->
+

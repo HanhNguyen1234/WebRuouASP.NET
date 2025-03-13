@@ -1,0 +1,36 @@
+﻿@model WebRuou.Models.Coupon
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="page-inner">
+        <h2>Xác nhận xóa danh mục</h2>
+        <div class="content-wrapper">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Bạn có chắc chắn muốn xóa danh mục này không?</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>ID:</strong> @Model.CouponID</p>
+                    <p><strong>Code:</strong> @Model.Code</p>
+                    <p><strong>Discount:</strong> @Model.Discount</p>
+                    <p><strong>Ngày hết hạn:</strong> @Model.ExpiryDate</p>
+                    <p><strong>Tối thiểu:</strong> @Model.MinOrderAmount</p>
+                    @using (Html.BeginForm("DeleteConfirmed", "Coupon", FormMethod.Post, new { id = Model.CouponID }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.CouponID)
+                        <button type="submit" class="btn btn-danger">Xóa</button>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

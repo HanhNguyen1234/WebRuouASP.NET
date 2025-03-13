@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "\\WebRuou",
+    "\\WebRuou\\App_Start",
+    "\\WebRuou\\Areas",
+    "\\WebRuou\\Areas\\Admin",
+    "\\WebRuou\\Areas\\Admin\\Controllers",
+    "\\WebRuou\\Areas\\Admin\\Views",
+    "\\WebRuou\\Areas\\Admin\\Views\\Home",
+    "\\WebRuou\\Controllers",
+    "\\WebRuou\\Models",
+    "\\WebRuou\\Views",
+    "\\WebRuou\\Views\\Login"
+  ],
+  "PreviewInSolutionExplorer": false
+}

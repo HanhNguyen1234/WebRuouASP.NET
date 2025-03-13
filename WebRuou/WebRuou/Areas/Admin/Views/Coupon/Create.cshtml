@@ -1,0 +1,61 @@
+﻿@model WebRuou.Models.Coupon
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="page-inner">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title"> Thêm mới khuyến mãi </h3>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Thông tin thêm mới</h3>
+                    <div class="card-body">
+                        @using (Html.BeginForm("Create", "Coupon", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <div class="form-group">
+                                <label for="ID">CouponID</label>
+                                @Html.TextBoxFor(x => x.CouponID, new { @class = "form-control", @placeholder = "ID coupon" })
+                                @Html.ValidationMessageFor(x => x.CouponID, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="NameCate">CODE</label>
+                                @Html.TextBoxFor(x => x.Code, new { @class = "form-control", @placeholder = "CODE" })
+                                @Html.ValidationMessageFor(x => x.Code, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="NameCate">Giảm giá</label>
+                                @Html.TextBoxFor(x => x.Discount, new { @class = "form-control", @placeholder = "Giảm giá" })
+                                @Html.ValidationMessageFor(x => x.Discount, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="NameCate">Ngày hết hạn</label>
+                                @Html.TextBoxFor(x => x.ExpiryDate, new { @class = "form-control", @placeholder = "Ngày" })
+                                @Html.ValidationMessageFor(x => x.ExpiryDate, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="NameCate">Đơn tối thiểu</label>
+                                @Html.TextBoxFor(x => x.MinOrderAmount, new { @class = "form-control", @placeholder = "Giá tiền" })
+                                @Html.ValidationMessageFor(x => x.MinOrderAmount, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <a href="/admin/category" class="btn btn-danger">Quay lại</a>
+                                <button type="submit" class="btn btn-success mr-2">Submit</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

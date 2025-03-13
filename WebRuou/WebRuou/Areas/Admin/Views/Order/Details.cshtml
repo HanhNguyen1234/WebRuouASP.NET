@@ -1,0 +1,51 @@
+﻿@model WebRuou.Models.Order
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="page-inner">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title"> Chi tiết đơn hàng #@Model.OrderID </h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Tổng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var detail in Model.OrderDetails)
+                        {
+                            <tr>
+                                <td>@(detail.Product != null ? detail.Product.Name : "Không xác định")</td>
+                                <td>@detail.Quantity</td>
+                                <td>@detail.Price</td>
+                                <td>@(detail.Quantity * detail.Price)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div>
+                    <p><strong>Tổng tiền: </strong> @Model.TotalAmount VNĐ</p>
+                    <p><strong>Trạng thái: </strong> @Model.Status</p>
+                    <p><strong>Ngày đặt: </strong> @Model.OrderDate?.ToString("dd/MM/yyyy")</p>
+
+                    <a href="@Url.Action("Index", "Order")" class="btn btn-secondary">Quay lại</a>
+                </div>
+            </div>
+            <!--/.card-body-->
+            <div class="card-footer">
+            </div>
+            <!--/.card-footer-->
+        </div>
+    </div>
+</div>
+

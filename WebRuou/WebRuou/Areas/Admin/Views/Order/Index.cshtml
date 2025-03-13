@@ -1,0 +1,74 @@
+﻿@using WebRuou.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="page-inner">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title"> Quản lý đơn hàng </h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã đơn</th>
+                            <th>Khách hàng</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày đặt</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            var i = 1;
+                            foreach (var order in Model)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@order.OrderID</td>
+                                    <td>@(order.User != null ? order.User.FullName : "Không xác định")</td>
+                                    <td>@order.TotalAmount</td>
+                                    <td>@order.Status</td>
+                                    <td>@order.OrderDate?.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <a href="@Url.Action("Details", "Order", new { id = order.OrderID })" class="btn btn-primary">Xem</a>
+
+                                        @if (order.Status == "Đang giao")
+                                        {
+                                            <a href="@Url.Action("UpdateStatus", "Order", new { id = order.OrderID })" class="btn btn-warning">Hoàn thành</a>
+                                            <a href="@Url.Action("Delete", "Order", new { id = order.OrderID })" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center">Không có sản phẩm nào</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div>
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                </div>
+            </div>
+            <!--/.card-body-->
+            <div class="card-footer">
+            </div>
+            <!--/.card-footer-->
+        </div>
+    </div>
+</div>
+
+

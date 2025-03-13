@@ -1,0 +1,124 @@
+﻿@using WebRuou.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+        .pagination li {
+            margin: 0 5px;
+        }
+
+            .pagination li a,
+            .pagination li span {
+                padding: 8px 12px;
+                text-decoration: none;
+                color: #007bff;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+
+                .pagination li a:hover,
+                .pagination li span:hover {
+                    background-color: #007bff;
+                    color: white;
+                }
+
+            .pagination li.active span {
+                background-color: #007bff;
+                color: white;
+                border-color: #007bff;
+            }
+
+            .pagination li.disabled span {
+                color: #6c757d;
+                cursor: not-allowed;
+                background-color: #e9ecef;
+                border-color: #ddd;
+            }
+
+    .product-img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="container">
+    <div class="page-inner">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title"> Quản lý danh sách sản phẩm </h3>
+            </div>
+            <p>
+                <a href="@Url.Action("Create", "Product")" class="btn btn-primary">Thêm sản phẩm mới</a>
+            </p>
+
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>ID</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Mô tả</th>
+                            <th>Giá</th>
+                            <th>Hình ảnh</th>
+                            <th>Danh mục</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            var i = 1;
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.ProductID</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Description</td>
+                                    <td>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + " VNĐ" : "Chưa có giá")</td>
+                                    <td>
+                                        <img src="@item.ImageURL" alt="@item.Name" class="product-img" />
+                                    </td>
+                                    <td>@item.CategoryID</td>
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Product", new { id = item.ProductID })" class="btn btn-sm btn-primary">Sửa</a>
+                                        <a href="@Url.Action("Delete", "Product", new { id = item.ProductID })" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">Xóa</a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center">Không có sản phẩm nào</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div>
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                </div>
+            </div>
+            <!--/.card-body-->
+        </div>
+    </div>
+</div>

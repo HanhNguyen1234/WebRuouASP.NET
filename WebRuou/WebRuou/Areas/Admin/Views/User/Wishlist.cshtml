@@ -1,0 +1,53 @@
+﻿@model List<WebRuou.Models.Wishlist>
+
+@{
+    ViewBag.Title = "Danh sách yêu thích";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="page-inner">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title"> Danh sách sản phẩm yêu thích </h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Hình ảnh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            var i = 1;
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Product.Name</td>
+                                    <td>@(item.Product.Price.HasValue ? item.Product.Price.Value.ToString("N0") + " VNĐ" : "Chưa có giá")</td>
+                                    <td>
+                                        <img src="@item.Product.ImageURL" alt="@item.Product.Name" class="product-img" />
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4" class="text-center">Không có sản phẩm yêu thích</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

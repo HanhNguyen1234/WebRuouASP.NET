@@ -1,0 +1,58 @@
+﻿@model WebRuou.Models.Product
+
+@{
+    ViewBag.Title = "Tạo mới sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center text-primary mb-4">Tạo Mới Sản Phẩm</h2>
+
+<div class="container">
+    <div class="card shadow-lg p-4">
+        @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data", @class = "needs-validation", novalidate = "novalidate" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(model => model.Name, "Tên sản phẩm", new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Nhập tên sản phẩm" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(model => model.Description, "Mô tả", new { @class = "form-label fw-bold" })
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Nhập mô tả sản phẩm", rows = "4" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(model => model.Price, "Giá sản phẩm", new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(model => model.Price, new { @class = "form-control", type = "number", placeholder = "Nhập giá sản phẩm", step = "0.01" })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(model => model.ImageURL, "Hình ảnh sản phẩm", new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(model => model.ImageURL, new { @class = "form-control", placeholder = "Nhập URL hình ảnh" })
+                        @Html.ValidationMessageFor(model => model.ImageURL, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(model => model.CategoryID, "Danh mục", new { @class = "form-label fw-bold" })
+                        @Html.DropDownList("CategoryID", ViewBag.CategoryID as SelectList, "-- Chọn danh mục --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success px-4">Tạo mới</button>
+                        <a href="@Url.Action("Index", "Product")" class="btn btn-outline-secondary px-4">Hủy</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

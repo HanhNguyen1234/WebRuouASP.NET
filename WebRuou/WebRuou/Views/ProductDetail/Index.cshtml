@@ -1,0 +1,183 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Single Product Start -->
+<div class="container-fluid py-6 mt-5">
+    <div class="container py-6">
+        <!-- Modal Search End -->
+        <section class="bread-crumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 a-left">
+                        <ul class="breadcrumb">
+                            <li class="home">
+                                <a href="/"><span>Trang chủ</span></a>
+                                <span class="br-line">|</span>
+                            </li>
+
+
+                            <li>
+                                <a class="changeurl" href="/san-pham-di-bieu-tang"><span>Hàng sắp về</span></a>
+                                <span class="br-line">|</span>
+                            </li>
+
+                            <li><strong><span>Rượu Remy Martin CLUB</span></strong></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container mt-4">
+            <div class="product-container">
+                <div class="thumbnail-container">
+                    <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou24.jpg?v=1445851659983" onclick="changeImage(this.src)">
+                    <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou25.jpg?v=1446025194947" onclick="changeImage(this.src)">
+                    <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/remy2.jpg?v=1445851659977" onclick="changeImage(this.src)">
+                </div>
+                <div class="product-image">
+                    <img id="mainImage" src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/remy2.jpg?v=1445851659977" alt="Sản phẩm">
+                </div>
+                <div class="product-info">
+                    <h2>RƯỢU REMY MARTIN CLUB</h2>
+                    <p class="price">1.230.000đ <span class="old-price">1.340.000đ</span></p>
+                    <p><strong>Số lượng:</strong> <input type="number" value="1" min="1" class="form-control w-25"></p>
+                    <button class="btn btn-warning">Mua hàng</button>
+                    <hr>
+                    <br><strong>Mô tả:</strong> Dung Tích: 750ml Xuất Sứ: Pháp Với những mùi vị, hương thơm hiếm <br>
+                    có như mùi hoa iris, mùi thủy tiên, candies fruit (mùi kẹo), Passion fruit </br>
+                    (mùi trái lạc tiên), vị trầm, vị mật ong và nhiều mùi vị khác, rượu...</p>
+                </div>
+            </div>
+
+            <ul class="nav nav-tabs mt-4" id="productTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#mo-ta">Mô tả</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#huong-dan">Hướng dẫn mua hàng</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="mo-ta" class="tab-pane fade show active py-3">
+                    <h5>Dung Tích&#8758; <span>750ml</span></h5>
+                    <h5>Xuất Xứ&#8758; <span>Pháp</span></h5>
+                    <một>
+                        Với những mùi vị, hương thơm hiếm có như mùi hoa iris, mùi thủy tiên, candies fruit (mùi kẹo), Passion fruit (mùi trái lạc tiên), vị trầm, vị mật ong và nhiều mùi vị khác, rượu Louis XIII de Rémy Martin là một loại rượu hoàn hảo, không thể nào quên vì chúng ta vẫn thưởng thức được mùi vị của nó cả một tiếng đồng hồ sau khi nếm.</p>
+                        <p>
+                            Là một loại rượu Cognac đặc biệt, dùng trong những cuộc họp mặt trang trọng của quý ông. Mang hương vị trái cây và tự nhiên, Rémy Martin Club cũng là một loại rượu remy dễ pha với thức uống khác.
+                            Được pha chế từ nhiều loại eau-de-vie (rượu nguyên chất)
+                            70% nho vùng Grande Champagne & 30% vùng Petite Champagne
+                            Club đạt đến đỉnh cao của nghệ thuật làm cognac, với hương vị đậm đà, êm và mượt như nhung
+                        </p>
+                </div>
+                <div id="huong-dan" class="tab-pane fade py-3">
+                    <p>
+                        Bước 1: Tìm sản phẩm cần mua Bạn có thể truy cập website để tìm và chọn sản phẩm muốn mua bằng nhiều cách:
+                        <br>+ Sử dụng ô tìm kiếm phía trên, gõ tên sản phẩm muốn mua (có thể tìm đích danh 1 sản phẩm, tìm theo hãng...). Website sẽ cung cấp cho bạn những gợi ý chính xác để lựa chọn:
+                        <br>Bước 2: Đặt mua sản phẩm Sau khi chọn được sản phẩm ưng ý muốn mua, bạn tiến hành đặt hàng bằng cách:
+                        <br>+ Chọn vào nút MUA NGAY nếu bạn muốn thanh toán luôn toàn bộ giá tiền sản phẩm
+                        <br>+ Điền đầy đủ các thông tin mua hàng theo các bước trên website, sau đó chọn hình thức nhận hàng là giao hàng tận nơi hay đến siêu thị lấy hàng, chọn hình thức thanh toán là trả khi nhận hàng hay thanh toán online (bằng thẻ ATM, VISA hay MasterCard) và hoàn tất đặt hàng.
+                        <br>+Lưu ý:
+                        <br>1. Chúng tôi chỉ chấp nhận những đơn đặt hàng khi cung cấp đủ thông tin chính xác về địa chỉ, số điện thoại. Sau khi bạn đặt hàng, chúng tôi sẽ liên lạc lại để kiểm tra thông tin và thỏa thuận thêm những điều có liên quan.
+                        <br>2. Một số trường hợp nhạy cảm: giá trị đơn hàng quá lớn & thời gian giao hàng vào buổi tối địa chỉ giao hàng trong ngõ hoặc có thể dẫn đến nguy hiểm. Chúng tôi sẽ chủ động liên lạc với quý khách để thống nhất lại thời gian giao hàng cụ thể.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Single Product End -->
+
+<div class="container-fluid favorite-products py-5">
+    <h2 class="title">Sản phẩm cùng loại</h2>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide product-item">
+                <div class="discount-label">8%</div>
+                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
+                <h5>Rượu Remy Martin CLUB</h5>
+                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
+                <button class="btn btn-primary">Mua hàng</button>
+            </div>
+            <div class="swiper-slide product-item">
+                <div class="discount-label">8%</div>
+                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
+                <h5>Rượu Remy Martin CLUB</h5>
+                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
+                <button class="btn btn-primary">Mua hàng</button>
+            </div>
+            <div class="swiper-slide product-item">
+                <div class="discount-label">8%</div>
+                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
+                <h5>Rượu Remy Martin CLUB</h5>
+                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
+                <button class="btn btn-primary">Mua hàng</button>
+            </div>
+            <div class="swiper-slide product-item">
+                <div class="discount-label">8%</div>
+                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
+                <h5>Rượu Remy Martin CLUB</h5>
+                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
+                <button class="btn btn-primary">Mua hàng</button>
+            </div>
+            <div class="swiper-slide product-item">
+                <div class="discount-label">8%</div>
+                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
+                <h5>Rượu Remy Martin CLUB</h5>
+                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
+                <button class="btn btn-primary">Mua hàng</button>
+            </div>
+            <div class="swiper-slide product-item">
+                <div class="discount-label">8%</div>
+                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
+                <h5>Rượu Remy Martin CLUB</h5>
+                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
+                <button class="btn btn-primary">Mua hàng</button>
+            </div>
+            <div class="swiper-slide product-item">
+                <div class="discount-label">8%</div>
+                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
+                <h5>Rượu Remy Martin CLUB</h5>
+                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
+                <button class="btn btn-primary">Mua hàng</button>
+            </div>
+            <div class="swiper-slide product-item">
+                <div class="discount-label">8%</div>
+                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
+                <h5>Rượu Remy Martin CLUB</h5>
+                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
+                <button class="btn btn-primary">Mua hàng</button>
+            </div>
+        </div>
+        <!-- Nút điều hướng -->
+    </div>
+</div>
+
+
+<!-- Swiper Slider -->
+<div class="section-brand">
+    <div class="container">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href="#"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand1.jpg?1676343869963" alt="Brand 1"></a></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand2.jpg?1676343869963" alt="Brand 2"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand3.jpg?1676343869963" alt="Brand 3"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand4.jpg?1676343869963" alt="Brand 4"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand5.jpg?1676343869963" alt="Brand 5"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand6.jpg?1676343869963" alt="Brand 6"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand7.jpg?1676343869963" alt="Brand 7"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand8.jpg?1676343869963" alt="Brand 8"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand9.jpg?1676343869963" alt="Brand 9"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand10.jpg?1676343869963" alt="Brand 10"></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
