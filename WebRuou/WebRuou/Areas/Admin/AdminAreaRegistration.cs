@@ -18,7 +18,7 @@ namespace WebRuou.Areas.Admin
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                new[] { "WebRuou.Areas.Admin.Controllers" }
+                namespaces: new[] { "WebRuou.Areas.Admin.Controllers" }
             );
         }
     }

@@ -72,7 +72,7 @@
     </Key>
     <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" />
-    <Property Name="Description" Type="text" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
     <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
     <Property Name="ImageURL" Type="nvarchar" MaxLength="500" />
     <Property Name="CategoryID" Type="int" />
@@ -110,6 +110,7 @@
     <Property Name="Phone" Type="nvarchar" MaxLength="15" />
     <Property Name="CreatedAt" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="Role" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="Wishlist">
     <Key>

@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using WebRuou.Models;
 using PagedList;
 
 namespace WebRuou.Areas.Admin.Controllers
 {
+    
     public class UserController : Controller
     {
         DBRuouEntities db = new DBRuouEntities();
@@ -16,9 +16,7 @@ namespace WebRuou.Areas.Admin.Controllers
             int pageSize = 10; // Số người dùng trên mỗi trang
             int pageNumber = (page ?? 1);
 
-            var users = db.Users
-                          .OrderByDescending(u => u.CreatedAt)
-                          .ToPagedList(pageNumber, pageSize);
+            var users = db.Users.OrderByDescending(u => u.CreatedAt).ToPagedList(pageNumber, pageSize);
 
             return View(users);
         }
@@ -32,7 +30,7 @@ namespace WebRuou.Areas.Admin.Controllers
                 return HttpNotFound();
             }
 
-            // Giả sử có trường IsActive để kiểm soát trạng thái tài khoản
+            // Thay đổi trạng thái
             user.IsActive = !user.IsActive;
             db.SaveChanges();
 
@@ -49,7 +47,6 @@ namespace WebRuou.Areas.Admin.Controllers
             }
 
             var wishlistItems = db.Wishlists.Where(w => w.UserID == id).ToList();
-
             return View(wishlistItems);
         }
     }

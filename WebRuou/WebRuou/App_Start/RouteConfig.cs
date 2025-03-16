@@ -17,7 +17,7 @@ namespace WebRuou
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Index", action = "Index", id = UrlParameter.Optional },
-                new[] { "WebRuou.Controllers"}
+                namespaces: new[] { "WebRuou.Controllers" }
             );
         }
     }

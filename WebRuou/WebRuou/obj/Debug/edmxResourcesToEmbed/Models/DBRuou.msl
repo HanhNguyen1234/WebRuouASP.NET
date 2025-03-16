@@ -112,6 +112,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="DBRuouModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
