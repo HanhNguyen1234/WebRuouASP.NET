@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Tất cả sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .col-md-9, .category-box {
+        margin-top: 100px;
+    }
+
+</style>
+
+<!-- Danh mục sản phẩm + sản phẩm -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row">
+            <!-- Sidebar danh mục -->
+            <div class="col-md-3">
+                <div class="category-box">
+                    <h4>DANH MỤC SẢN PHẨM</h4>
+                    <ul>
+                        @if (ViewBag.Categories != null)
+                        {
+                            <ul>
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <li>
+                                        <a href="#">@category.CategoryName (@category.Products.Count)</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p>Không có danh mục nào.</p>
+                        }
+                    </ul>
+
+                </div>
+            </div>
+
+            <!-- Danh sách sản phẩm -->
+            <div class="col-md-9">
+                <h2 class="text-center">Tất cả sản phẩm</h2>
+                <div class="row">
+                    @if (ViewBag.Products != null)
+                    {
+                        <div class="row">
+                            @foreach (var product in ViewBag.Products)
+                            {
+                                <div class="col-md-4">
+                                    <div class="product-item">
+                                        <img src="@product.ImageURL" alt="@product.Name">
+                                        <h5>@product.Name</h5>
+                                        <p class="price">@product.Price ₫</p>
+                                        <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
+                                        <button class="btn btn-primary">Mua hàng</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Không có sản phẩm nào.</p>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
