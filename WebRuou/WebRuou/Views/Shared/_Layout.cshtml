@@ -52,10 +52,29 @@
                 <p><i class="far fa-clock"></i> 9h - 21h từ thứ 2 đến thứ 7</p>
             </div>
             <div class="right-info">
-                <a href="/Register/Index"><p><i class="fas fa-lock"></i> Đăng ký</p></a>
-                <a href="login.html"><p><i class="fas fa-user"></i> Đăng nhập</p></a>
-                <span class="search-icon"><button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button></i></span>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <p><i class="fas fa-user"></i> Xin chào, @User.Identity.Name</p>
+                    <a href="/login/logout"><p><i class="fas fa-sign-out-alt"></i> Đăng xuất</p></a>
+                }
+                else
+                {
+                    <p><i class="fas fa-lock"></i> <a href="/register">Đăng ký</a></p>
+                    <a href="/login/index"><p><i class="fas fa-user"></i> Đăng nhập</p></a>
+                }
+                <span class="search-icon">
+                    <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                            data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search text-primary"></i>
+                    </button>
+                </span>
             </div>
+
+            @* <div class="right-info">
+            <p><i class="fas fa-lock"></i> Đăng ký</p>
+            <a href="/login/index"><p><i class="fas fa-user"></i> Đăng nhập</p></a>
+            <span class="search-icon"><button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button></i></span>
+        </div>*@
         </div>
         <div class="container px-0">
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
@@ -155,7 +174,7 @@
                         <h4 class="text-pink mb-3">THÔNG TIN</h4>
                         <a class="btn-link" href="">Trang chủ</a>
                         <a class="btn-link" href="">Giới thiệu</a>
-                        <a href="/Product/Index">Sản phẩm</a>
+                        <a class="btn-link" href="">Sản phẩm</a>
                         <a class="btn-link" href="">Tin tức</a>
                     </div>
                 </div>

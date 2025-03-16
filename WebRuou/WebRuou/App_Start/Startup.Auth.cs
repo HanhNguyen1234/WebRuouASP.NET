@@ -14,8 +14,12 @@ public partial class Startup
         app.UseCookieAuthentication(new CookieAuthenticationOptions
         {
             AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-            LoginPath = new PathString("/Login")
+            LoginPath = new PathString("/Login"),
+            ExpireTimeSpan = TimeSpan.FromMinutes(60),
+            SlidingExpiration = true
         });
+        app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
 
         /*// Đăng nhập bằng Google
         app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
@@ -28,9 +32,10 @@ public partial class Startup
         // Đăng nhập bằng Facebook
         app.UseFacebookAuthentication(new FacebookAuthenticationOptions()
         {
-            AppId = "1169311708193078",
-            AppSecret = "7177e80d40ce564a512157dc4c88b6e9",
-            CallbackPath = new PathString("/signin-facebook")
+            AppId = "1329580451589504",
+            AppSecret = "1bcee80af95578ccc5758a2f9ed0d4ac",
+            CallbackPath = new PathString("/signin-facebook"),
+             SignInAsAuthenticationType = DefaultAuthenticationTypes.ExternalCookie
         });
     }
 }

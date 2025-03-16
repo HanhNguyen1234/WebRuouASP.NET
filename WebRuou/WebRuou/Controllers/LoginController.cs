@@ -1,49 +1,23 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using WebRuou.Models;
-using System.Web.Helpers;
 
 namespace WebRuou.Controllers
 {
     public class LoginController : Controller
     {
-        private DBRuouEntities db = new DBRuouEntities();
-
+        // GET: Login
+        
         // Trang đăng nhập
         public ActionResult Index()
         {
             return View();
-        }
-
-        [HttpPost]
-        public ActionResult Login(string email, string password)
-        {
-            var user = db.Users.FirstOrDefault(u => u.Email == email);
-
-            if (user == null || !Crypto.VerifyHashedPassword(password, user.PasswordHash))
-            {
-                ModelState.AddModelError("", "Sai tài khoản hoặc mật khẩu!");
-                return View("Index");
-            }
-
-            // Xác thực đăng nhập
-            var identity = new ClaimsIdentity(new[] {
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.Role)
-            }, DefaultAuthenticationTypes.ApplicationCookie);
-
-            HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), identity);
-
-            // Điều hướng theo vai trò
-            if (user.Role == "Admin")
-                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
-
-            return RedirectToAction("Index", "Home");
         }
 
         // Xử lý đăng nhập bằng Google
@@ -52,7 +26,7 @@ namespace WebRuou.Controllers
             var properties = new AuthenticationProperties { RedirectUri = Url.Action("ExternalLoginCallback", "Login", null, Request.Url.Scheme) };
             HttpContext.GetOwinContext().Authentication.Challenge(properties, "Google");
             return new HttpUnauthorizedResult();
-        }
+        }       
 
         // Xử lý đăng nhập bằng Facebook
         public ActionResult LoginFacebook()
@@ -63,7 +37,7 @@ namespace WebRuou.Controllers
         }
 
         // Xử lý callback sau khi đăng nhập thành công
-        public ActionResult ExternalLoginCallback()
+        public ActionResult ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = HttpContext.GetOwinContext().Authentication.GetExternalLoginInfo();
             if (loginInfo == null)
@@ -71,10 +45,60 @@ namespace WebRuou.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
-            var identity = new ClaimsIdentity(loginInfo.ExternalIdentity.Claims, DefaultAuthenticationTypes.ApplicationCookie);
-            HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), identity);
+            using (var db = new DBRuouEntities())
+            {
+                // Kiểm tra xem email có trong bảng AdminUsers không
+                var adminUser = db.AdminUsers.SingleOrDefault(a => a.Username == loginInfo.Email);
 
-            return RedirectToAction("Index", "Home");
+                if (adminUser != null)
+                {
+                    // Nếu tài khoản có trong AdminUsers -> Đăng nhập với quyền Admin
+                    var identity = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
+                    identity.AddClaim(new Claim(ClaimTypes.Name, adminUser.Username)); // Dùng Username thay vì FullName
+                    identity.AddClaim(new Claim(ClaimTypes.Email, adminUser.Username));
+                    identity.AddClaim(new Claim(ClaimTypes.Role, adminUser.Role ?? "User")); // Mặc định User nếu Role null
+
+                    HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), identity);
+                    return RedirectToAction("Index", "Home", new { area = "Admin" });
+                }
+
+                // Nếu không phải admin, kiểm tra trong bảng Users
+                var user = db.Users.SingleOrDefault(u => u.Email == loginInfo.Email);
+
+                if (user == null)
+                {
+                    // Nếu user chưa tồn tại, thêm vào bảng Users
+                    var newUser = new User
+                    {
+                        FullName = loginInfo.DefaultUserName ?? loginInfo.Email,
+                        Email = loginInfo.Email,
+                        CreatedAt = DateTime.Now,
+                        IsActive = true
+                    };
+                    db.Users.Add(newUser);
+                    db.SaveChanges();
+
+                    // Thêm vào AdminUsers với role mặc định là "User"
+                    var newAdminUser = new AdminUser
+                    {
+                        Username = loginInfo.Email,
+                        PasswordHash = "", // Nếu cần mật khẩu cho đăng nhập thông thường thì cập nhật sau
+                        Role = "User"
+                    };
+                    db.AdminUsers.Add(newAdminUser);
+                    db.SaveChanges();
+                }
+
+                // Đăng nhập với quyền User
+                var userIdentity = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
+                userIdentity.AddClaim(new Claim(ClaimTypes.Name, user?.FullName ?? loginInfo.Email));
+                userIdentity.AddClaim(new Claim(ClaimTypes.Email, loginInfo.Email));
+                userIdentity.AddClaim(new Claim(ClaimTypes.Role, "User"));
+
+                HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), userIdentity);
+
+                return RedirectToAction("Index", "Index");
+            }
         }
 
         public ActionResult ExternalLogin(string provider, string returnUrl)
@@ -84,6 +108,7 @@ namespace WebRuou.Controllers
             HttpContext.GetOwinContext().Authentication.Challenge(properties, provider);
             return new HttpUnauthorizedResult();
         }
+
 
         // Đăng xuất
         public ActionResult Logout()
