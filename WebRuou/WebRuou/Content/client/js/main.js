@@ -37,10 +37,6 @@
         });
     });
     
-
-
-
-
     // Fixed Navbar
     $(window).scroll(function () {
         if ($(window).width() < 992) {
@@ -180,4 +176,6 @@
 function changeImage(src) {
     document.getElementById('mainImage').src = src;
 }
+
+
 

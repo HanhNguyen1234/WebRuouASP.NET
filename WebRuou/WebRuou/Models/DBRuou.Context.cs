@@ -19,7 +19,8 @@ namespace WebRuou.Models
             : base("name=DBRuouEntities")
         {
         }
-    
+        // Kiểm tra xem dòng này có tồn tại không
+        public virtual DbSet<CartItem> CartItems { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

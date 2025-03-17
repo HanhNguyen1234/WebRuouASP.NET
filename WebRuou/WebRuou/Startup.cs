@@ -33,8 +33,8 @@ namespace WebRuou
             // 2️⃣ Đăng nhập Google
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_ID"),
-                ClientSecret = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_SECRET"),
+                ClientId = "YOUR_GOOGLE_CLIENT_ID",
+                ClientSecret = "YOUR_GOOGLE_CLIENT_SECRET",
                 CallbackPath = new PathString("/signin-google"),
                 SignInAsAuthenticationType = DefaultAuthenticationTypes.ExternalCookie
             });

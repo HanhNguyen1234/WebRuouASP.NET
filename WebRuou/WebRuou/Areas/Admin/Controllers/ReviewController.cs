@@ -6,6 +6,7 @@ using PagedList;
 
 namespace WebRuou.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ReviewController : Controller
     {
         DBRuouEntities db = new DBRuouEntities();

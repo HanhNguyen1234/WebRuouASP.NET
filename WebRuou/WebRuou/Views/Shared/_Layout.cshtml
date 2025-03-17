@@ -54,14 +54,33 @@
             <div class="right-info">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <p><i class="fas fa-user"></i> Xin chào, @User.Identity.Name</p>
-                    <a href="/login/logout"><p><i class="fas fa-sign-out-alt"></i> Đăng xuất</p></a>
+                    var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+                    var nameIdentifier = claimsIdentity?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                    var userName = claimsIdentity?.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value; // Lấy tên
+                    var userEmail = claimsIdentity?.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value; // Lấy email
+
+                    if (string.IsNullOrEmpty(userName))
+                    {
+                        userName = userEmail; // Nếu không có tên, hiển thị email
+                    }
+
+                    if (!string.IsNullOrEmpty(userName))
+                    {
+                        <p><i class="fas fa-user"></i> Xin chào, @userName!</p>
+                        <a href="/login/logout"><p><i class="fas fa-sign-out-alt"></i> Đăng xuất</p></a>
+                    }
+                    else
+                    {
+                        <p style="color: red;">Lỗi: Không lấy được thông tin người dùng.</p>
+                        <a href="/login/logout"><p><i class="fas fa-sign-out-alt"></i> Đăng xuất</p></a>
+                    }
                 }
                 else
                 {
                     <p><i class="fas fa-lock"></i> <a href="/register">Đăng ký</a></p>
                     <a href="/login/index"><p><i class="fas fa-user"></i> Đăng nhập</p></a>
                 }
+
                 <span class="search-icon">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                             data-bs-toggle="modal" data-bs-target="#searchModal">
@@ -70,11 +89,12 @@
                 </span>
             </div>
 
+
             @* <div class="right-info">
-            <p><i class="fas fa-lock"></i> Đăng ký</p>
-            <a href="/login/index"><p><i class="fas fa-user"></i> Đăng nhập</p></a>
-            <span class="search-icon"><button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button></i></span>
-        </div>*@
+                    <p><i class="fas fa-lock"></i> Đăng ký</p>
+                    <a href="/login/index"><p><i class="fas fa-user"></i> Đăng nhập</p></a>
+                    <span class="search-icon"><button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button></i></span>
+                </div>*@
         </div>
         <div class="container px-0">
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
@@ -98,23 +118,20 @@
                             </div>
                         </div>
                     </div>
+                    @{
+                        var cart = Session["Cart"] as List<WebRuou.Models.CartItem>; // Đúng tên Session
+                        var cartCount = cart != null ? cart.Sum(i => i.Quantity) : 0;
+                    }
                     <div class="d-flex m-3 me-0">
-
-                        <a href="/cart/index" class="position-relative me-4 my-auto">
-                            <i class="fa fa-shopping-bag fa-2x"></i>
-                            <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-                        </a>
-                       @* @{
-                            var cartCount = new WebRuou.Controllers.CartController().GetCartCount();
-                        }
-                        <a href="/cart/index" class="position-relative me-4 my-auto">
+                        <a href="@Url.Action("Index", "Cart")" class="position-relative me-4 my-auto">
                             <i class="fa fa-shopping-bag fa-2x"></i>
                             <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
                                   style="top: -5px; left: 15px; height: 20px; min-width: 20px;">
-                                @(cartCount > 0 ? cartCount : 0)
+                                @cartCount
                             </span>
-                        </a>*@
+                        </a>
                     </div>
+
                 </div>
             </nav>
         </div>
@@ -137,9 +154,34 @@
             </div>
         </div>
     </div>
+    <!-- Modal giỏ hàng -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title" id="cartModalLabel">Thêm vào giỏ hàng thành công</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center">
+                        <img id="cartProductImage" src="" alt="Sản phẩm" class="me-3" style="width: 80px; height: auto;">
+                        <div>
+                            <p id="cartProductName" class="fw-bold mb-1"></p>
+                            <p id="cartProductPrice" class="text-danger mb-0"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Tiếp tục mua hàng</button>
+                    <a href="@Url.Action("Index", "Cart")" class="btn btn-warning">Tiến hành thanh toán »</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     @RenderBody()
-   
+
 
     <!-- Tastimonial End -->
     <!-- Footer Start -->
@@ -241,6 +283,21 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+    function updateCartCount() {
+        $.get('@Url.Action("GetCartCount", "Cart")', function (data) {
+            $("#cart-count").text(data);
+        });
+    }
+
+    $(document).ready(function () {
+        updateCartCount(); // Cập nhật ngay khi tải trang
+    });
+    </script>
+
+    <span id="cart-count">0</span>
+
+
 </body>
 
 </html>

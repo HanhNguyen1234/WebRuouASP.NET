@@ -9,6 +9,7 @@ using WebRuou.Models;
 
 namespace WebRuou.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CouponController : Controller
     {
         // GET: Admin/Coupon

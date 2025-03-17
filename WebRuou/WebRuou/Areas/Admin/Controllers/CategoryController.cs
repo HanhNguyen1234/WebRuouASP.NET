@@ -10,6 +10,7 @@ using WebRuou.Models;
 
 namespace WebRuou.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         DBRuouEntities db=new DBRuouEntities();

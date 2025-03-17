@@ -5,37 +5,46 @@ using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.Facebook;
 using Owin;
 using System;
+using System.Security.Claims;
+using WebRuou.Models;
 
 public partial class Startup
 {
     public void ConfigureAuth(IAppBuilder app)
     {
-        // Cấu hình Cookie Authentication
-        app.UseCookieAuthentication(new CookieAuthenticationOptions
-        {
-            AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-            LoginPath = new PathString("/Login"),
-            ExpireTimeSpan = TimeSpan.FromMinutes(60),
-            SlidingExpiration = true
-        });
-        app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
-
-        /*// Đăng nhập bằng Google
+        // Cấu hình đăng nhập qua Google
         app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
         {
-            ClientId = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_ID"),
-            ClientSecret = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_SECRET"),
-            CallbackPath = new PathString("/signin-google")
-        });*/
+            ClientId = "YOUR_GOOGLE_CLIENT_ID",
+            ClientSecret = "YOUR_GOOGLE_CLIENT_SECRET",
+            Provider = new GoogleOAuth2AuthenticationProvider
+            {
+                OnAuthenticated = async context =>
+                {
+                    context.Identity.AddClaim(new Claim(ClaimTypes.Role, "User")); // Mặc định là User
+                }
+            }
+        });
 
-        // Đăng nhập bằng Facebook
+        // Cấu hình đăng nhập qua Facebook
         app.UseFacebookAuthentication(new FacebookAuthenticationOptions()
         {
-            AppId = "1329580451589504",
-            AppSecret = "1bcee80af95578ccc5758a2f9ed0d4ac",
-            CallbackPath = new PathString("/signin-facebook"),
-             SignInAsAuthenticationType = DefaultAuthenticationTypes.ExternalCookie
+            AppId = "YOUR_FACEBOOK_APP_ID",
+            AppSecret = "YOUR_FACEBOOK_APP_SECRET",
+            Provider = new FacebookAuthenticationProvider
+            {
+                OnAuthenticated = async context =>
+                {
+                    context.Identity.AddClaim(new Claim(ClaimTypes.Role, "User")); // Mặc định là User
+                }
+            }
+        });
+
+        // Cấu hình Cookie Authentication
+        app.UseCookieAuthentication(new CookieAuthenticationOptions()
+        {
+            AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+            LoginPath = new PathString("/Account/Login")
         });
     }
 }

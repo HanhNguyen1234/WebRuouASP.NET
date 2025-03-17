@@ -28,19 +28,19 @@ namespace WebRuou.Controllers
                     return View("Index", model);
                 }
 
-                if (model.Password != ConfirmPassword)
+                if (model.PasswordHash != ConfirmPassword)
                 {
                     ViewBag.ErrorMessage = "Mật khẩu nhập lại không khớp!";
                     return View("Index", model);
                 }
 
                 // Mã hóa mật khẩu trước khi lưu
-                model.PasswordHash = Crypto.HashPassword(model.Password);
+                model.PasswordHash = Crypto.HashPassword(model.PasswordHash);
                 model.CreatedAt = DateTime.Now;
                 model.IsActive = true;
 
                 // Xác định vai trò dựa vào email
-                if (model.Email.EndsWith("@admin.com"))
+                if (model.Email.EndsWith("nguyenthuyngan280703@gmail.com"))
                 {
                     model.Role = "Admin";
                 }

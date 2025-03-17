@@ -133,6 +133,7 @@
     <NavigationProperty Name="Wishlists" Relationship="Self.FK__Wishlist__UserID__6C190EBB" FromRole="Users" ToRole="Wishlist" />
     <Property Name="IsActive" Type="Boolean" />
     <Property Name="Role" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ExternalId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Wishlist">
     <Key>

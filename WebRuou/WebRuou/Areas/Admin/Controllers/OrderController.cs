@@ -9,6 +9,7 @@ using WebRuou.Models;
 
 namespace WebRuou.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OrderController : Controller
     {
         DBRuouEntities db = new DBRuouEntities();

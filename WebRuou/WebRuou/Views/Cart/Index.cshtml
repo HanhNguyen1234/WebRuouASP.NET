@@ -1,10 +1,10 @@
-﻿@model List<WebRuou.Models.Cart>
+﻿@model List<WebRuou.Models.CartItem>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Cart Page Start -->
+ Cart Page Start
 <div class="container-fluid py-6">
     <div class="container py-6">
         <section class="bread-crumb">
@@ -16,7 +16,7 @@
                                 <a style="color: #898989;" href="/"><span>Trang chủ</span></a>
                                 <span class="br-line">|</span>
                             </li>
-                            <li style="color: #E8b34F;"><strong><span>Rượu Remy Martin CLUB</span></strong></li>
+                            <li style="color: #E8b34F;"><strong><span>Giỏ hàng</span></strong></li>
 
                         </ul>
                     </div>
@@ -24,11 +24,7 @@
             </div>
         </section>
         <div class="table-responsive">
-            @if (Model.Count == 0)
-            {
-                <p>Giỏ hàng của bạn trống.</p>
-            }
-            else
+            @if (Model != null && Model.Count > 0)
             {
                 <table class="table">
                     <thead>
@@ -45,52 +41,24 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <th scope="row">
-                                    <div class="d-flex align-items-center">
-                                        <img src="@item.Product.ImageURL" class="img-fluid rounded-circle me-5" style="width: 80px; height: 80px;" alt="@item.Product.Name">
-                                    </div>
-                                </th>
+                                <td><img src="@item.ImageURL" width="50" /></td>
+                                <td>@item.ProductName</td>
+                                <td>@item.ProductPrice.ToString("N0") ₫</td>
                                 <td>
-                                    <p class="mb-0 mt-4">@item.Product.Name</p>
+                                    <form action="@Url.Action("UpdateCart", "Cart")" method="post">
+                                        <input type="hidden" name="productID" value="@item.ProductID" />
+                                        <input type="number" name="quantity" value="@item.Quantity" min="1" style="width: 60px;" />
+                                        <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
+                                    </form>
                                 </td>
+                                <td>@((item.ProductPrice * item.Quantity).ToString("N0")) ₫</td>
                                 <td>
-                                    <p class="mb-0 mt-4">
-                                        @(item.Product.Price?.ToString("C") ?? "0 ₫")
-                                    </p>
-                                </td>
-                                <td>
-                                    <div class="input-group quantity mt-4" style="width: 100px;">
-                                        <form action="@Url.Action("UpdateCart", "Cart")" method="post">
-                                            <input type="hidden" name="cartId" value="@item.CartID" />
-                                            <div class="input-group-btn">
-                                                <button type="submit" name="quantity" value="@(item.Quantity - 1)" class="btn rounded-circle btn-sm btn-minus bg-light border" @(item.Quantity == 1 ? "disabled" : "")>
-                                                    <i class="fa fa-minus"></i>
-                                                </button>
-                                            </div>
-                                            <input type="text" class="form-control form-control-sm text-center border-0" name="quantity" value="@item.Quantity" readonly>
-                                            <div class="input-group-btn">
-                                                <button type="submit" name="quantity" value="@(item.Quantity + 1)" class="btn btn-sm btn-plus rounded-circle bg-light border">
-                                                    <i class="fa fa-plus"></i>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="mb-0 mt-4">
-                                        @(string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", (item.Quantity * (item.Product.Price ?? 0))))
-                                    </p>
-                                </td>
-                                <td>
-                                    <a href="@Url.Action("RemoveFromCart", "Cart", new { cartId = item.CartID })" class="btn btn-md rounded-circle bg-light border mt-4">
-                                        <i class="fa fa-times text-danger"></i>
-                                    </a>
+                                    <a href="@Url.Action("RemoveFromCart", "Cart", new { productID = item.ProductID })" class="btn btn-sm btn-danger">Xóa</a>
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
-
                 <div class="row g-4 justify-content-end">
                     <div class="col-8"></div>
                     <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4 py-4">
@@ -105,7 +73,7 @@
                             <div class="mb-4 border-bottom d-flex justify-content-between">
                                 <h5 class="mb-0 py-2 ps-4 me-4">Tổng tiền</h5>
                                 <p class="mb-0 py-2 pe-4" style="color: #E8b34F;">
-                                    @(string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", Model.Sum(c => c.Quantity * (c.Product.Price ?? 0)) ?? 0))
+                                    @*@(string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", Model.Sum(c => c.Quantity * (c.Product.Price ?? 0)) ?? 0))*@
                                 </p>
                             </div>
                             <a href="@Url.Action("Checkout", "Cart")" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">
@@ -115,7 +83,12 @@
                     </div>
                 </div>
             }
+            else
+            {
+                <p>Giỏ hàng của bạn trống.</p>
+            }
+
         </div>
     </div>
 </div>
-    <!-- Cart Page End -->
+<!-- Cart Page End -->

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebRuou.Models.Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,28 +28,28 @@
 <div class="container-fluid favorite-products">
     <h2 class="title">ĐƯỢC ƯA THÍCH NHẤT</h2>
     <div class="products">
-        <div class="product">
-            <span class="discount">8%</span>
-            <img src="https://bizweb.dktcdn.net/thumb/large/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-            <p class="name">Rượu Remy Martin CLUB</p>
-            <p class="price">1.230.000đ <span class="old-price">1.340.000đ</span></p>
-        </div>
-        <div class="product">
-            <img src="https://bizweb.dktcdn.net/thumb/large/100/022/044/products/3.png?v=1445851165587" alt="Rượu Luxury Altair Red">
-            <p class="name">Rượu Luxury Altair Red</p>
-            <p class="price">2.338.000đ</p>
-        </div>
-        <div class="product">
-            <span class="discount">16%</span>
-            <img src="https://bizweb.dktcdn.net/thumb/large/100/022/044/products/31.png?v=1445850758393" alt="Rượu Johnnie Walker Blue">
-            <p class="name">Rượu Johnnie Walker Blue</p>
-            <p class="price">729.000đ <span class="old-price">870.000đ</span></p>
-        </div>
-        <div class="product">
-            <img src="https://bizweb.dktcdn.net/thumb/large/100/022/044/products/19.png?v=1445850433743" alt="Rượu California Muscat">
-            <p class="name">Rượu California Muscat</p>
-            <p class="price">2.000.000đ</p>
-        </div>
+        @if (ViewBag.Products != null)
+        {
+            foreach (var product in ViewBag.Products)
+            {
+                <div class="product-item">
+                    <img src="@product.ImageURL" alt="@product.Name">
+                    <h5>@product.Name</h5>
+                    <p class="price">@product.Price ₫</p>
+                    <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success">Thêm vào giỏ hàng</a>                    <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
+                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
+                        <span>
+                            <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
+                            Mua hàng
+                        </span>
+                    </button>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Không có sản phẩm nào.</p>
+        }
     </div>
 </div>
 <!-- Fruits Shop End-->
@@ -63,6 +63,7 @@
                         <div class="col-md-6">
                             <div class="banner-item img1">
                                 <div class="info">
+
                                     <span>Rượu vang</span>
                                 </div>
                                 <a href="#" class="inline-block">
@@ -151,16 +152,21 @@
                     <div class="category-box">
                         <h4>DANH MỤC BIA</h4>
                         <ul>
-                            <li><a href="#">Rượu pha (9)</a></li>
-                            <li><a href="#">Rượu ngoại (8)</a></li>
-                            <li><a href="#">Rượu tri ân (20)</a></li>
-                            <li><a href="#">Rượu Vodka (9)</a></li>
-                            <li><a href="#">Giỏ quà biếu (9)</a></li>
-                            <li><a href="#">Rượu vang nhập khẩu (9)</a></li>
-                            <li><a href="#">Hàng sắp về (9)</a></li>
-                            <li><a href="#">Hàng mới về (9)</a></li>
-                            <li><a href="#">Sản phẩm bán chạy (9)</a></li>
-                            <li><a href="#">Sản phẩm giá ưu đãi (9)</a></li>
+                            @if (ViewBag.Categories != null)
+                            {
+                                <ul>
+                                    @foreach (var category in ViewBag.Categories)
+                                    {
+                                        <li>
+                                            <a href="#">@category.CategoryName (@category.Products.Count)</a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p>Không có danh mục nào.</p>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -169,59 +175,32 @@
                 <div class="col-md-9">
                     <h2 class="text-center">SẢN PHẨM BÁN CHẠY</h2>
                     <div class="row">
-                        <!-- Sản phẩm 1 -->
-                        <div class="col-md-4">
-                            <div class="product-item">
-                                <div class="discount-label">8%</div>
-                                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                                <h5>Rượu Remy Martin CLUB</h5>
-                                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                                <div>
-                                    <input type="hidden" name="variantId" value="">
-                                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                        <span>
-                                            <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                            Mua hàng
-                                        </span>
-                                    </button>
+                            @if (ViewBag.Products != null)
+                            {
+                                <div class="row">
+                                    @foreach (var product in ViewBag.Products)
+                                    {
+                                        <div class="col-md-4">
+                                            <div class="product-item">
+                                                <img src="@product.ImageURL" alt="@product.Name">
+                                                <h5>@product.Name</h5>
+                                                <p class="price">@product.Price ₫</p>
+                                                <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
+                                                <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
+                                                    <span>
+                                                        <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
+                                                        Mua hàng
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
-                            </div>
-                        </div>
-                        <!-- Sản phẩm 2 -->
-                        <div class="col-md-4">
-                            <div class="product-item">
-                                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/3.png?v=1445851165587" alt="Rượu Luxury Altair Red">
-                                <h5>Rượu Luxury Altair Red</h5>
-                                <p class="price">2.338.000₫</p>
-                                <div>
-                                    <input type="hidden" name="variantId" value="">
-                                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                        <span>
-                                            <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                            Mua hàng
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Sản phẩm 3 -->
-                        <div class="col-md-4">
-                            <div class="product-item">
-                                <div class="discount-label">16%</div>
-                                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/31.png?v=1445850758393" alt="Rượu Johnnie Walker Blue">
-                                <h5>Rượu Johnnie Walker Blue</h5>
-                                <p class="price">729.000₫ <span class="old-price">870.000₫</span></p>
-                                <div>
-                                    <input type="hidden" name="variantId" value="">
-                                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                        <span>
-                                            <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                            Mua hàng
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                            }
+                            else
+                            {
+                                <p>Không có sản phẩm nào.</p>
+                            }
                     </div>
                 </div>
 
@@ -240,16 +219,21 @@
                     <div class="category-box">
                         <h4>DANH MỤC BIA</h4>
                         <ul>
-                            <li><a href="#">Rượu pha (9)</a></li>
-                            <li><a href="#">Rượu ngoại (8)</a></li>
-                            <li><a href="#">Rượu tri ân (20)</a></li>
-                            <li><a href="#">Rượu Vodka (9)</a></li>
-                            <li><a href="#">Giỏ quà biếu (9)</a></li>
-                            <li><a href="#">Rượu vang nhập khẩu (9)</a></li>
-                            <li><a href="#">Hàng sắp về (9)</a></li>
-                            <li><a href="#">Hàng mới về (9)</a></li>
-                            <li><a href="#">Sản phẩm bán chạy (9)</a></li>
-                            <li><a href="#">Sản phẩm giá ưu đãi (9)</a></li>
+                            @if (ViewBag.Categories != null)
+                            {
+                                <ul>
+                                    @foreach (var category in ViewBag.Categories)
+                                    {
+                                        <li>
+                                            <a href="#">@category.CategoryName (@category.Products.Count)</a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p>Không có danh mục nào.</p>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -258,59 +242,32 @@
                 <div class="col-md-9">
                     <h2 class="text-center">SẢN PHẨM HOT NHẤT HÔM NAY</h2>
                     <div class="row">
-                        <!-- Sản phẩm 1 -->
-                        <div class="col-md-4">
-                            <div class="product-item">
-                                <div class="discount-label">8%</div>
-                                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                                <h5>Rượu Remy Martin CLUB</h5>
-                                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                                <div>
-                                    <input type="hidden" name="variantId" value="">
-                                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                        <span>
-                                            <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                            Mua hàng
-                                        </span>
-                                    </button>
-                                </div>
+                        @if (ViewBag.Products != null)
+                        {
+                            <div class="row">
+                                @foreach (var product in ViewBag.Products)
+                                {
+                                    <div class="col-md-4">
+                                        <div class="product-item">
+                                            <img src="@product.ImageURL" alt="@product.Name">
+                                            <h5>@product.Name</h5>
+                                            <p class="price">@product.Price ₫</p>
+                                            <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
+                                            <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
+                                                <span>
+                                                    <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
+                                                    Mua hàng
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
                             </div>
-                        </div>
-                        <!-- Sản phẩm 2 -->
-                        <div class="col-md-4">
-                            <div class="product-item">
-                                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/3.png?v=1445851165587" alt="Rượu Luxury Altair Red">
-                                <h5>Rượu Luxury Altair Red</h5>
-                                <p class="price">2.338.000₫</p>
-                                <div>
-                                    <input type="hidden" name="variantId" value="">
-                                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                        <span>
-                                            <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                            Mua hàng
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Sản phẩm 3 -->
-                        <div class="col-md-4">
-                            <div class="product-item">
-                                <div class="discount-label">16%</div>
-                                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/31.png?v=1445850758393" alt="Rượu Johnnie Walker Blue">
-                                <h5>Rượu Johnnie Walker Blue</h5>
-                                <p class="price">729.000₫ <span class="old-price">870.000₫</span></p>
-                                <div>
-                                    <input type="hidden" name="variantId" value="">
-                                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                        <span>
-                                            <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                            Mua hàng
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <p>Không có sản phẩm nào.</p>
+                        }
                     </div>
                 </div>
 

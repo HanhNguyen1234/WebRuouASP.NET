@@ -111,6 +111,7 @@
     <Property Name="CreatedAt" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
     <Property Name="Role" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ExternalId" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Wishlist">
     <Key>
