@@ -27,6 +27,27 @@ namespace WebRuou.Controllers
 
             return View();
         }
+        public ActionResult PartialSameProduct(int categoryId)
+        {
+            var relatedProducts = db.Products
+                .Where(p => p.CategoryID == categoryId)
+                .ToList();
+
+            return PartialView(relatedProducts);
+        }
+
+        public ActionResult ProductDetail(int id)
+        {
+            // Retrieve the product by ID
+            var product = db.Products.Find(id);
+
+            if (product == null)
+            {
+                return HttpNotFound(); // Return 404 if product not found
+            }
+
+            return View(product); // Pass the product to the view
+        }
     }
 }
 

@@ -50,7 +50,9 @@
                             {
                                 <div class="col-md-4">
                                     <div class="product-item">
-                                        <img src="@product.ImageURL" alt="@product.Name">
+                                        <a href="@Url.Action("ProductDetail", "Product", new { id = product.ProductID })">
+                                            <img src="@product.ImageURL" alt="@product.Name">
+                                        </a>
                                         <h5>@product.Name</h5>
                                         <p class="price">@product.Price ₫</p>
                                         <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebRuou.Models.Product>
+
+<div class="container-fluid favorite-products py-5">
+    <h2 class="title">Sản phẩm cùng loại</h2>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            @if (ViewBag.Products != null && ViewBag.Products.Count > 0)
+            {
+                foreach (var product in ViewBag.Products)
+                {
+                    <div class="swiper-slide product-item">
+                        <div class="discount-label">8%</div>
+                        <a href="@Url.Action("ProductDetail", "Product", new { id = product.ProductID })">
+                            <img src="@product.ImageURL" alt="@product.Name">
+                        </a>
+                        <h5>@product.Name</h5>
+                        <p class="price">@product.Price.ToString("N0") đ</p>
+                        <a href="@Url.Action("AddToCart", "Cart", new { productID = product.Id })" class="btn btn-success">Thêm vào giỏ hàng</a>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Không có sản phẩm cùng loại.</p>
+            }
+        </div>
+    </div>
+</div>
+

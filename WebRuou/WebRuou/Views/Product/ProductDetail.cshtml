@@ -1,9 +1,8 @@
-﻿
+﻿@model WebRuou.Models.Product
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ProductDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!-- Single Product Start -->
 <div class="container-fluid py-6 mt-5">
     <div class="container py-6">
@@ -34,25 +33,22 @@
         <div class="container mt-4">
             <div class="product-container">
                 <div class="thumbnail-container">
-                    <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou24.jpg?v=1445851659983" onclick="changeImage(this.src)">
-                    <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou25.jpg?v=1446025194947" onclick="changeImage(this.src)">
-                    <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/remy2.jpg?v=1445851659977" onclick="changeImage(this.src)">
+                    <img src="@Model.ImageURL"
+                         onclick="changeImage(this.src)">
                 </div>
                 <div class="product-image">
-                    <img id="mainImage" src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/remy2.jpg?v=1445851659977" alt="Sản phẩm">
+                    <img id="mainImage" src="@Model.ImageURL"
+                         alt="@Model.Name">
                 </div>
                 <div class="product-info">
-                    <h2>RƯỢU REMY MARTIN CLUB</h2>
-                    <p class="price">1.230.000đ <span class="old-price">1.340.000đ</span></p>
+                    <h2>@Model.Name</h2>
+                    <p class="price">@Model.Price đ <span class="old-price">1.340.000đ</span></p>
                     <p><strong>Số lượng:</strong> <input type="number" value="1" min="1" class="form-control w-25"></p>
-                    <button class="btn btn-warning">Mua hàng</button>
+                    <a href="@Url.Action("AddToCart", "Cart", new { productID = Model.ProductID })" class="btn btn-success">Thêm vào giỏ hàng</a>
                     <hr>
-                    <br><strong>Mô tả:</strong> Dung Tích: 750ml Xuất Sứ: Pháp Với những mùi vị, hương thơm hiếm <br>
-                    có như mùi hoa iris, mùi thủy tiên, candies fruit (mùi kẹo), Passion fruit </br>
-                    (mùi trái lạc tiên), vị trầm, vị mật ong và nhiều mùi vị khác, rượu...</p>
+                    <br><strong>Mô tả:</strong> @Model.Description
                 </div>
             </div>
-
             <ul class="nav nav-tabs mt-4" id="productTabs">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#mo-ta">Mô tả</a>
@@ -93,70 +89,7 @@
 </div>
 <!-- Single Product End -->
 
-<div class="container-fluid favorite-products py-5">
-    <h2 class="title">Sản phẩm cùng loại</h2>
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide product-item">
-                <div class="discount-label">8%</div>
-                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                <h5>Rượu Remy Martin CLUB</h5>
-                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                <button class="btn btn-primary">Mua hàng</button>
-            </div>
-            <div class="swiper-slide product-item">
-                <div class="discount-label">8%</div>
-                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                <h5>Rượu Remy Martin CLUB</h5>
-                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                <button class="btn btn-primary">Mua hàng</button>
-            </div>
-            <div class="swiper-slide product-item">
-                <div class="discount-label">8%</div>
-                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                <h5>Rượu Remy Martin CLUB</h5>
-                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                <button class="btn btn-primary">Mua hàng</button>
-            </div>
-            <div class="swiper-slide product-item">
-                <div class="discount-label">8%</div>
-                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                <h5>Rượu Remy Martin CLUB</h5>
-                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                <button class="btn btn-primary">Mua hàng</button>
-            </div>
-            <div class="swiper-slide product-item">
-                <div class="discount-label">8%</div>
-                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                <h5>Rượu Remy Martin CLUB</h5>
-                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                <button class="btn btn-primary">Mua hàng</button>
-            </div>
-            <div class="swiper-slide product-item">
-                <div class="discount-label">8%</div>
-                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                <h5>Rượu Remy Martin CLUB</h5>
-                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                <button class="btn btn-primary">Mua hàng</button>
-            </div>
-            <div class="swiper-slide product-item">
-                <div class="discount-label">8%</div>
-                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                <h5>Rượu Remy Martin CLUB</h5>
-                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                <button class="btn btn-primary">Mua hàng</button>
-            </div>
-            <div class="swiper-slide product-item">
-                <div class="discount-label">8%</div>
-                <img src="https://bizweb.dktcdn.net/thumb/medium/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB">
-                <h5>Rượu Remy Martin CLUB</h5>
-                <p class="price">1.230.000₫ <span class="old-price">1.340.000₫</span></p>
-                <button class="btn btn-primary">Mua hàng</button>
-            </div>
-        </div>
-        <!-- Nút điều hướng -->
-    </div>
-</div>
+@Html.Action("PartialSameProduct", "Product", new { categoryId = Model.CategoryID })
 
 
 <!-- Swiper Slider -->
@@ -180,4 +113,6 @@
         </div>
     </div>
 </div>
+
+
 

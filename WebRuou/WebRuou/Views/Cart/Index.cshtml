@@ -73,7 +73,7 @@
                             <div class="mb-4 border-bottom d-flex justify-content-between">
                                 <h5 class="mb-0 py-2 ps-4 me-4">Tổng tiền</h5>
                                 <p class="mb-0 py-2 pe-4" style="color: #E8b34F;">
-                                    @*@(string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", Model.Sum(c => c.Quantity * (c.Product.Price ?? 0)) ?? 0))*@
+                                    @Model.Sum(i => i.ProductPrice * i.Quantity).ToString("N0") ₫
                                 </p>
                             </div>
                             <a href="@Url.Action("Checkout", "Cart")" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">
