@@ -16,7 +16,7 @@ namespace WebRuou.Controllers
             var categories = db.Categories.ToList(); 
             ViewBag.Categories = categories;
 
-            var products = db.Products.ToList();
+            var products = db.Products.ToList();  
             ViewBag.Products = products;
 
             return View();

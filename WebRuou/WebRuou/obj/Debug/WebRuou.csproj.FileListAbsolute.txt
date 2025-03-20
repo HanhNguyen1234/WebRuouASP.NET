@@ -164,6 +164,8 @@ D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\EntityFramewor
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.Identity.Core.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.Owin.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.Owin.Host.SystemWeb.dll
@@ -177,6 +179,7 @@ D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Newtonsoft.Jso
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Owin.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PagedList.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PagedList.Mvc.dll
+D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PayPal.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Helpers.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Mvc.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Optimization.dll
@@ -190,6 +193,10 @@ D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\EntityFramewor
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.Identity.Core.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.SignalR.Core.pdb
+D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.Owin.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.Owin.Security.xml
@@ -199,6 +206,7 @@ D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.Owin
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PagedList.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PagedList.Mvc.xml
+D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PayPal.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Helpers.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Mvc.xml
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Optimization.xml

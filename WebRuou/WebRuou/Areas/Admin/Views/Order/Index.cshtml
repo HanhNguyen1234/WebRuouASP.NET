@@ -14,7 +14,25 @@
                 <h3 class="page-title">Quản lý đơn hàng</h3>
             </div>
 
-            <div class="card-body">
+            <!-- Bộ lọc tìm kiếm -->
+            <form method="get" action="@Url.Action("Index")">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="searchString" value="@Request.QueryString["searchString"]" class="form-control" placeholder="Tìm kiếm theo mã hoặc tên khách hàng">
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownList("status", ViewData["StatusList"] as SelectList, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary">Lọc</button>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Reset</a>
+                    </div>
+                </div>
+            </form>
+
+
+            <!-- Danh sách đơn hàng -->
+            <div class="card-body" style="margin-top: 20px;">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -37,13 +55,10 @@
                                     <td>@i</td>
                                     <td>@order.OrderID</td>
                                     <td>@(order.User != null ? order.User.FullName : "Không xác định")</td>
+                                    <td>@String.Format("{0:N0}", order.TotalAmount)đ</td>
                                     <td>
-                                        @String.Format("{0:N0}", order.TotalAmount)đ
+                                        <span>@order.Status</span>
                                     </td>
-                                    <td>@order.Status</td>
-                                    @*<td>
-            <span class="badge badge-@GetStatusClass(order.Status)">@order.Status</span>
-        </td>*@
                                     <td>@(order.OrderDate?.ToString("dd/MM/yyyy"))</td>
                                     <td>
                                         <a href="@Url.Action("Details", "Order", new { id = order.OrderID })" class="btn btn-primary">Xem</a>
@@ -62,8 +77,9 @@
                     </tbody>
                 </table>
 
+                <!-- Phân trang -->
                 <div>
-                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, searchString = ViewBag.SearchString, status = ViewBag.SelectedStatus }))
                 </div>
             </div>
         </div>

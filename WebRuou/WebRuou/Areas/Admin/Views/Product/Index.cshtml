@@ -1,6 +1,5 @@
-﻿@using WebRuou.Models
-@using PagedList.Mvc;
-@model PagedList.PagedList<Product>
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<WebRuou.Models.Product>
 
 @{
     ViewBag.Title = "Danh sách sản phẩm";
@@ -63,9 +62,25 @@
             <div class="page-header">
                 <h3 class="page-title"> Quản lý danh sách sản phẩm </h3>
             </div>
+
             <p>
                 <a href="@Url.Action("Create", "Product")" class="btn btn-primary">Thêm sản phẩm mới</a>
             </p>
+
+            <form method="get" action="@Url.Action("Index", "Product")">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control" placeholder="Tìm kiếm theo tên...">
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DropDownList("categoryID", ViewBag.CategoryID as SelectList, "Chọn danh mục", new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success">Lọc</button>
+                        <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Reset</a>
+                    </div>
+                </div>
+            </form>
 
             <div class="card-body">
                 <table class="table table-hover">
@@ -115,10 +130,9 @@
                 </table>
 
                 <div>
-                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, searchString = ViewBag.SearchString, categoryID = Request.QueryString["categoryID"] }))
                 </div>
             </div>
-            <!--/.card-body-->
         </div>
     </div>
 </div>

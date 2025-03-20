@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|d:\\th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\webruouasp.net\\webruou\\webruou\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|d:\\th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\webruouasp.net\\webruou\\webruou\\areas\\admin\\views\\order\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\areas\\admin\\views\\order\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|d:\\th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\webruouasp.net\\webruou\\webruou\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|d:\\th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\webruouasp.net\\webruou\\webruou\\areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\index\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\index\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|d:\\th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\webruouasp.net\\webruou\\webruou\\areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|d:\\th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\webruouasp.net\\webruou\\webruou\\areas\\admin\\views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\areas\\admin\\views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,72 +34,81 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "WebRuou\\App_Start\\RouteConfig.cs",
-              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "WebRuou\\App_Start\\RouteConfig.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T15:45:46.676Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Edit.cshtml",
-              "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Views\\Order\\Edit.cshtml",
-              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Edit.cshtml",
-              "RelativeToolTip": "WebRuou\\Areas\\Admin\\Views\\Order\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-17T15:39:49.979Z",
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Web.config",
+              "RelativeDocumentMoniker": "WebRuou\\Web.config",
+              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Web.config",
+              "RelativeToolTip": "WebRuou\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-03-20T03:18:01.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
-              "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
-              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
-              "RelativeToolTip": "WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-17T15:39:34.749Z",
-              "EditorCaption": ""
+              "Title": "Payment.cs",
+              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Models\\Payment.cs",
+              "RelativeDocumentMoniker": "WebRuou\\Models\\Payment.cs",
+              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Models\\Payment.cs",
+              "RelativeToolTip": "WebRuou\\Models\\Payment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T15:14:27.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "WebRuou\\Models\\Order.cs",
+              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Models\\Order.cs",
+              "RelativeToolTip": "WebRuou\\Models\\Order.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAcwBsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T15:14:08.182Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Views\\Order\\Index.cshtml",
-              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Index.cshtml",
-              "RelativeToolTip": "WebRuou\\Areas\\Admin\\Views\\Order\\Index.cshtml",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwCgAAABUAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebRuou\\Views\\Checkout\\Index.cshtml",
+              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\Index.cshtml",
+              "RelativeToolTip": "WebRuou\\Views\\Checkout\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-17T15:38:19.096Z",
+              "WhenOpened": "2025-03-19T15:13:05.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CheckoutController.cs",
+              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Controllers\\CheckoutController.cs",
+              "RelativeDocumentMoniker": "WebRuou\\Controllers\\CheckoutController.cs",
+              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Controllers\\CheckoutController.cs",
+              "RelativeToolTip": "WebRuou\\Controllers\\CheckoutController.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAA5wCUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T15:12:37.456Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
-              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T15:29:20.032Z",
-              "EditorCaption": ""
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Index\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebRuou\\Views\\Index\\Index.cshtml",
+              "ToolTip": "D:\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Index\\Index.cshtml",
+              "RelativeToolTip": "WebRuou\\Views\\Index\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-18T06:10:55.13Z"
             }
           ]
         }
